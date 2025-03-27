@@ -147,20 +147,7 @@
           </span>
         </div>
       </div>
-      <div class="my-8 flex space-x-12">
-        <a href="https://www.facebook.com" target="_blank" class="text-blue-600 text-3xl">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.instagram.com" target="_blank" class="text-pink-600 text-3xl">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://www.tiktok.com" target="_blank" class="text-black text-3xl">
-          <i class="fab fa-tiktok"></i>
-        </a>
-        <a href="https://discord.com" target="_blank" class="text-blue-600 text-3xl">
-          <i class="fab fa-discord"></i>
-        </a>
-      </div>
+
     </section>
 
 
@@ -302,7 +289,22 @@
       </div>
     </section>
 
-    <section id="inscreva-se" class="flex flex-col justify-center my-8">
+    <section id="faq" class="flex justify-center flex-col items-center">
+      <div class="min-w-[350px] lg:min-w-[1240px] self-center">
+        <div class="flex flex-1 flex-col justify-between items-center max-w-[1240px] rounded-[45px]">
+          <span
+            class="text-4xl lg:text-6xl max-w-[350px] lg:max-w-max text-left self-center lg:self-start font-medium p-1 my-1 rounded-[7px]">
+
+            Perguntas Frequentes
+          </span>
+
+          <FaqCard class="mt-[30px]" v-for="(faq, index) in faqs" :key="index" :question="faq.question"
+            :answer="faq.answer" :number="formatNumber(index + 1)" />
+        </div>
+      </div>
+    </section>
+
+    <section id="inscreva-se" class="flex flex-col justify-center mt-8">
       <div class="w-[350px] lg:w-[1240px] self-center">
 
         <span class="text-4xl lg:text-6xl text-left self-start font-medium p-1 my-1 rounded-[7px] bg-[#B9FF66]">
@@ -311,7 +313,7 @@
 
       </div>
       <div
-        class="flex flex-row justify-between self-center items-center min-w-[350px] lg:w-[1240px] h-[569px] rounded-[45px] bg-[#F3F3F3] p-8 my-16">
+        class="flex flex-row justify-between self-center items-center min-w-[350px] lg:w-[1240px] h-[569px] rounded-[45px] bg-[#F3F3F3] p-8">
         <div class="flex-1">
           <form @submit.prevent="handleSubmit" class="w-full max-w-md space-y-6">
             <div>
@@ -336,9 +338,6 @@
                 </a>
               </label>
             </div>
-
-            <!-- Inclua o modal -->
-
             <div>
               <button type="submit"
                 class="w-[100%] lg:w-[556px] h-[68px] bg-gradient-to-t from-[#D93BFC] to-[#5BB9EE] text-white text-xl rounded-[14px] mt-4 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">Enviar</button>
@@ -356,20 +355,23 @@
       </div>
 
     </section>
-    <section id="faq" class="flex justify-center flex-col items-center">
-      <div class="min-w-[350px] lg:min-w-[1240px] self-center">
-        <div class="flex flex-1 flex-col justify-between items-center max-w-[1240px] rounded-[45px]">
-          <span
-            class="text-4xl lg:text-6xl max-w-[350px] lg:max-w-max text-left self-center lg:self-start font-medium p-1 my-1 rounded-[7px]">
-
-            Perguntas Frequentes
-          </span>
-
-          <FaqCard class="mt-[30px]" v-for="(faq, index) in faqs" :key="index" :question="faq.question"
-            :answer="faq.answer" :number="formatNumber(index + 1)" />
-        </div>
+    <div id="social" class="flex justify-center flex-col items-center">
+      <div class="mb-12 m-0 flex space-x-12">
+        <a href="https://www.facebook.com/inrisept" target="_blank" class="text-blue-600 text-3xl">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.instagram.com/inrise.pt/" target="_blank" class="text-pink-600 text-3xl">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://www.tiktok.com/@inrisept" target="_blank" class="text-black text-3xl">
+          <i class="fab fa-tiktok"></i>
+        </a>
+        <a href="https://discord.gg/mFMxa8wHjP" target="_blank" class="text-blue-600 text-3xl">
+          <i class="fab fa-discord"></i>
+        </a>
       </div>
-    </section>
+    </div>
+
 
   </div>
   <LpPrivacyPolicy :isVisible="showPrivacyModal" @close="closePrivacyModal" />
@@ -524,8 +526,6 @@ section {
   padding-left: 100px;
   padding-top: 30px;
   padding-bottom: 0px;
-  margin-top: 30px;
-  margin-bottom: 30px;
 }
 
 
