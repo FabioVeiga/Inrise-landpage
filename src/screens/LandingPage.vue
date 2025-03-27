@@ -14,7 +14,7 @@
         <li><a class="hidden lg:flex" @click="scrollToSection('o-que-e')">O que é a InRise</a></li>
         <li><a class="hidden lg:flex" @click="scrollToSection('sobre-o-beta')">Sobre o Beta</a></li>
         <li><a class="hidden lg:flex" @click="scrollToSection('como-participar')">Como Participar</a></li>
-        <li><a class="hidden lg:flex" @click="scrollToSection('inscreva-se')">Inscreva-se</a></li>
+        <li><a class="hidden lg:flex" @click="scrollToSection('inscreva-se')">Inscreve-te</a></li>
       </ul>
 
       <!-- Hamburger Icon -->
@@ -35,7 +35,7 @@
           <li><a @click="scrollToSection('o-que-e')" class="text-lg text-gray-700">O que é a InRise</a></li>
           <li><a @click="scrollToSection('sobre-o-beta')" class="text-lg text-gray-700">Sobre o Beta</a></li>
           <li><a @click="scrollToSection('como-participar')" class="text-lg text-gray-700">Como Participar</a></li>
-          <li><a @click="scrollToSection('inscreva-se')" class="text-lg text-gray-700">Inscreva-se</a></li>
+          <li><a @click="scrollToSection('inscreva-se')" class="text-lg text-gray-700">Inscreve-te</a></li>
         </ul>
       </div>
 
@@ -121,7 +121,7 @@
         <div class="flex flex-col justify-start items-center w-full max-w-[250px] h-auto">
           <img src="@/assets/beta.png" alt="Logo" class="object-scale-down w-[200px]">
           <span class="min-w-[240px] mt-12 text-center">
-            1. Inscreva-se no Beta Teste <br> através do nosso newsletter.
+            1. Inscreve-te no Beta Teste <br> através do nosso newsletter.
           </span>
         </div>
 
@@ -409,6 +409,23 @@ export default {
         { question: 'Os PCs têm garantia?', answer: 'Sim, todos os PCs vendidos no BETA têm garantia, incluindo suporte técnico e substituição de peças defeituosas.' },
         { question: 'E se não comprei no prazo?', answer: 'Mesmo que não tenhas comprado no prazo, continuarás a receber novidades sobre lançamentos e eventos especiais. No entanto, os benefícios específicos do BETA, como preços exclusivos e brindes, estarão disponíveis apenas durante o BETA.' },
       ],
+    };
+  },
+  mounted() {
+    const script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=G-GV6CLDTM5V";
+    document.head.appendChild(script);
+
+    script.onload = () => {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+
+      gtag("js", new Date());
+      gtag("config", "G-GV6CLDTM5V");
     };
   },
   methods: {
